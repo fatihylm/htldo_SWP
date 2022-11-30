@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s ease;
+  font-family: bignoodletitling;
+  background-color: lightgrey;
+}
+
+div.img-area {
+  height: 400px;
+  width: 100%;
+  background: url("wemadeit.gif");
+  background-position: center;
+  background-size: cover;
+  margin-right: 50px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.form-area {
+  display: flex;
+  justify-content: center;
+  box-shadow: 1px 15px 15px black;
+  padding-right: 50px;
+  background-color: white;
+}
+
+.right-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+a{
+  margin-right: 75%;
+  background-color: red;
+  text-align: center;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+}
+
+h2{
+  font-size: xx-large;
+}
