@@ -40,7 +40,7 @@ div.img-area {
   padding-bottom: 20px;
 }
 
-a{
+a {
   margin-top: 10px;
   margin-right: 75%;
   background-color: red;
@@ -50,14 +50,14 @@ a{
   padding: 10px;
 }
 
-h2{
+h2 {
   font-size: xx-large;
 }
 
-p{
+p {
   line-height: 1.6;
 }
 
-input{
+input {
   margin-bottom: 1.5rem;
 }
