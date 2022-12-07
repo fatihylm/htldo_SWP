@@ -1,40 +1,18 @@
 <template>
-  <div class="wrapper">
-    <div class="main">
-      <h1>Simple Calculator</h1>
-      <input v-model="currentValue" />
-      <div class="row">
-        <simple-button
-          class="btn"
-          beschriftung="+"
-          @calculate="calculate"
-        ></simple-button>
-        <simple-button
-          class="btn"
-          beschriftung="-"
-          @calculate="calculate"
-        ></simple-button>
-        <simple-button
-          class="btn"
-          beschriftung="*"
-          @calculate="calculate"
-        ></simple-button>
-        <simple-button
-          class="btn"
-          beschriftung="/"
-          @calculate="calculate"
-        ></simple-button>
-      </div>
-      <simple-button
-        id="large"
-        class="btn"
-        beschriftung="="
-        @calculate="calculate"
-      ></simple-button>
+    <div class="wrapper">
+        <div class="main">
+            <h1>Simple Calculator</h1>
+            <input v-model="currentValue"/>
+            <div class="row">
+                <simple-button class="btn" beschriftung="+" @calculate="calculate"></simple-button>
+                <simple-button class="btn" beschriftung="-" @calculate="calculate"></simple-button>
+                <simple-button class="btn" beschriftung="*" @calculate="calculate"></simple-button>
+                <simple-button class="btn" beschriftung="/" @calculate="calculate"></simple-button>
+            </div>
+            <simple-button id="large" class="btn" beschriftung="=" @calculate="calculate"></simple-button>
+       </div>
     </div>
-  </div>
 </template>
-
 <script>
 import SimpleButton from "./SimpleButton.vue";
 
@@ -78,12 +56,10 @@ export default {
   },
 };
 </script>
-<style scoped>
-body,
-* {
-}
+<style>
+
 .wrapper {
-  height: 50vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,6 +83,7 @@ input {
   gap: 15px;
 }
 .btn {
+  display: flex;
   width: 40%;
   height: 4rem;
   background-color: rgb(0, 0, 0);
@@ -114,7 +91,7 @@ input {
   font-size: 3.5rem;
   line-height: 4rem;
   transition: all 0.5s;
-  text-align: center;
+  justify-content: space-evenly;
 }
 
 .btn:hover {
