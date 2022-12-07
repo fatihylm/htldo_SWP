@@ -1,24 +1,23 @@
 <template>
-  <div @click="click()" class="btn">{{ this.calcOperation }}</div>
+  <div @click="click()" class="btn">{{ this.Rechenart }}</div>
 </template>
 
 <script>
 export default {
   emits: ["handleClick"],
   props: {
-    calcOperation: {
+    Rechenart: {
       type: String,
       required: true,
     },
   },
   methods: {
     click() {
-      this.$emit("handleClick", this.calcOperation);
+      this.$emit("handleClick", this.Rechenart);
     },
   },
 };
 </script>
-
 <style>
 .btn {
   width: 20%;

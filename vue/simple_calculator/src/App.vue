@@ -5,13 +5,13 @@
       <the-calculator></the-calculator>
     </div>
     <div class="buttons">
-      <simple-button @handleClick="addOperation" :calcOperation="'+'"></simple-button>
-      <simple-button @handleClick="addOperation" :calcOperation="'-'"></simple-button>
-      <simple-button @handleClick="addOperation" :calcOperation="'*'"></simple-button>
-      <simple-button @handleClick="addOperation" :calcOperation="'/'"></simple-button>
+      <simple-button :Rechenart="'+'"></simple-button>
+      <simple-button :Rechenart="'-'"></simple-button>
+      <simple-button :Rechenart="'*'"></simple-button>
+      <simple-button :Rechenart="'/'"></simple-button>
     </div>
     <div class="equals">
-      <simple-button @handleClick="addOperation" :calcOperation="'='"></simple-button>
+      <simple-button :Rechenart="'='"></simple-button>
     </div>
   </div>
 </template>
