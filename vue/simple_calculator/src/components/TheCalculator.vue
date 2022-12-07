@@ -50,6 +50,7 @@ export default {
     };
   },
   methods: {
+    //Hier werden die Rechenarten definiert und deren Funktion definiert
     calculate(Rechenart) {
       if (
         (Rechenart === "+") |
@@ -70,8 +71,6 @@ export default {
         } else if (this.previousOperator === "/") {
           this.currentValue = this.previousValue / parseInt(this.currentValue);
         }
-      } else {
-        console.log("Falsche Rechenart");
       }
     },
   },
@@ -97,11 +96,7 @@ input {
   margin-bottom: 20px;
   font-size: 2rem;
 }
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: 15px;
-}
+
 .btn {
   display: flex;
   width: 40%;
@@ -113,7 +108,11 @@ input {
   transition: all 0.5s;
   justify-content: space-evenly;
 }
-
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
 .btn:hover {
   background-color: rgb(202, 202, 202);
   cursor: pointer;
