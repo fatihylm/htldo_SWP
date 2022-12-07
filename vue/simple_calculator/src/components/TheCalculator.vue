@@ -101,12 +101,13 @@ input {
   display: flex;
   width: 40%;
   height: 4rem;
-  background-color: rgb(0, 0, 0);
-  color: rgb(17, 121, 31);
+  background-color: rgb(170, 170, 170);
+  color: rgb(0, 255, 13);
   font-size: 3.5rem;
   line-height: 4rem;
   transition: all 0.5s;
   justify-content: space-evenly;
+  align-content: center;
 }
 .row {
   display: flex;
@@ -114,20 +115,20 @@ input {
   gap: 15px;
 }
 .btn:hover {
-  background-color: rgb(202, 202, 202);
+  background-color: black;
   cursor: pointer;
 }
 #large {
   margin-top: 20px;
   width: 100%;
   height: 6vh;
-  background: #000000;
+  background: rgb(170, 170, 170);;
   text-align: center;
   font-size: 3.5rem;
 }
 
 #large:hover {
-  background-color: rgb(202, 202, 202);
+  background-color: rgb(0, 0, 0);
   cursor: pointer;
 }
 </style>
