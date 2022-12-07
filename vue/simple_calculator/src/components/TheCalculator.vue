@@ -1,22 +1,137 @@
 <template>
-  <input v-model="text">
-  
+  <div class="wrapper">
+    <div class="main">
+      <h1>Simple Calculator</h1>
+      <input v-model="currentValue" />
+      <div class="row">
+        <simple-button
+          class="btn"
+          beschriftung="+"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          beschriftung="-"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          beschriftung="*"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          beschriftung="/"
+          @calculate="calculate"
+        ></simple-button>
+      </div>
+      <simple-button
+        id="large"
+        class="btn"
+        beschriftung="="
+        @calculate="calculate"
+      ></simple-button>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {
+import SimpleButton from "./SimpleButton.vue";
 
+export default {
+  name: "TheCalculator",
+  components: {
+    SimpleButton,
+  },
+  data() {
+    return {
+      previousValue: 0,
+      currentValue: "",
+      previousOperator: "",
+    };
+  },
+  methods: {
+    calculate(beschriftung) {
+      if (
+        (beschriftung === "+") |
+        (beschriftung === "-") |
+        (beschriftung === "*") |
+        (beschriftung === "/")
+      ) {
+        this.previousValue = parseInt(this.currentValue);
+        this.currentValue = "";
+        this.previousOperator = beschriftung;
+      } else if (beschriftung === "=") {
+        if (this.previousOperator === "+") {
+          this.currentValue = this.previousValue + parseInt(this.currentValue);
+        } else if (this.previousOperator === "-") {
+          this.currentValue = this.previousValue - parseInt(this.currentValue);
+        } else if (this.previousOperator === "*") {
+          this.currentValue = this.previousValue * parseInt(this.currentValue);
+        } else if (this.previousOperator === "/") {
+          this.currentValue = this.previousValue / parseInt(this.currentValue);
+        }
+      } else {
+        console.log("Falsche Beschriftung");
+      }
+    },
+  },
 };
 </script>
+<style scoped>
+body,
+* {
+}
+.wrapper {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-<style>
+h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+}
 input {
-  border: solid 2px rgb(0, 0, 0);
+  width: 80vw;
+  height: 5vh;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.btn {
+  width: 40%;
+  height: 4rem;
   background-color: rgb(0, 0, 0);
-  color: white;
-  height: 25%;
-  width: 92%;
-  font-size: 2.5rem;
-  color: rgb(26, 138, 50);
+  color: rgb(17, 121, 31);
+  font-size: 3.5rem;
+  line-height: 4rem;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: rgb(202, 202, 202);
+  cursor: pointer;
+}
+#large {
+  margin-top: 20px;
+  width: 100%;
+  height: 6vh;
+  background: #000000;
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+#large:hover {
+  background-color: rgb(202, 202, 202);
+  cursor: pointer;
 }
 </style>
