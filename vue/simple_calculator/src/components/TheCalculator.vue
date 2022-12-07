@@ -1,17 +1,38 @@
 <template>
-    <div class="wrapper">
-        <div class="main">
-            <h1>Simple Calculator</h1>
-            <input v-model="currentValue"/>
-            <div class="row">
-                <simple-button class="btn" beschriftung="+" @calculate="calculate"></simple-button>
-                <simple-button class="btn" beschriftung="-" @calculate="calculate"></simple-button>
-                <simple-button class="btn" beschriftung="*" @calculate="calculate"></simple-button>
-                <simple-button class="btn" beschriftung="/" @calculate="calculate"></simple-button>
-            </div>
-            <simple-button id="large" class="btn" beschriftung="=" @calculate="calculate"></simple-button>
-       </div>
+  <div class="wrapper">
+    <div class="main">
+      <h1>Simple Calculator</h1>
+      <input v-model="currentValue" />
+      <div class="row">
+        <simple-button
+          class="btn"
+          Rechenart="+"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          Rechenart="-"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          Rechenart="*"
+          @calculate="calculate"
+        ></simple-button>
+        <simple-button
+          class="btn"
+          Rechenart="/"
+          @calculate="calculate"
+        ></simple-button>
+      </div>
+      <simple-button
+        id="large"
+        class="btn"
+        Rechenart="="
+        @calculate="calculate"
+      ></simple-button>
     </div>
+  </div>
 </template>
 <script>
 import SimpleButton from "./SimpleButton.vue";
@@ -29,17 +50,17 @@ export default {
     };
   },
   methods: {
-    calculate(beschriftung) {
+    calculate(Rechenart) {
       if (
-        (beschriftung === "+") |
-        (beschriftung === "-") |
-        (beschriftung === "*") |
-        (beschriftung === "/")
+        (Rechenart === "+") |
+        (Rechenart === "-") |
+        (Rechenart === "*") |
+        (Rechenart === "/")
       ) {
         this.previousValue = parseInt(this.currentValue);
         this.currentValue = "";
-        this.previousOperator = beschriftung;
-      } else if (beschriftung === "=") {
+        this.previousOperator = Rechenart;
+      } else if (Rechenart === "=") {
         if (this.previousOperator === "+") {
           this.currentValue = this.previousValue + parseInt(this.currentValue);
         } else if (this.previousOperator === "-") {
@@ -50,14 +71,13 @@ export default {
           this.currentValue = this.previousValue / parseInt(this.currentValue);
         }
       } else {
-        console.log("Falsche Beschriftung");
+        console.log("Falsche Rechenart");
       }
     },
   },
 };
 </script>
 <style>
-
 .wrapper {
   height: 80vh;
   display: flex;

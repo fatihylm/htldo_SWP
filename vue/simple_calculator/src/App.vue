@@ -3,12 +3,12 @@
 </template>
 
 <script>
-import TheCalculator from './components/TheCalculator.vue'
+import TheCalculator from "./components/TheCalculator.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TheCalculator,
-  }
-}
+  },
+};
 </script>
