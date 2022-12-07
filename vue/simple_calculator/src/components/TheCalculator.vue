@@ -102,7 +102,7 @@ input {
   width: 40%;
   height: 4rem;
   background-color: rgb(170, 170, 170);
-  color: rgb(0, 255, 13);
+  color: rgb(255, 217, 0);
   font-size: 3.5rem;
   line-height: 4rem;
   transition: all 0.5s;
