@@ -1,20 +1,38 @@
 <template>
-  <button type="button" class="btn" >
-        {{ symbols }}
-  </button>
+  <div @click="click()" class="btn">{{ this.calcOperation }}</div>
 </template>
 
 <script>
-  export default {
-    name: 'SimpleButton',
-    props: {
-      symbols: String
-    }
-  }
+export default {
+  emits: ["handleClick"],
+  props: {
+    calcOperation: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    click() {
+      this.$emit("handleClick", this.calcOperation);
+    },
+  },
+};
 </script>
 
 <style>
-button{
-  color: aqua;
+.btn {
+  width: 20%;
+  height: 4rem;
+  background-color: rgb(0, 0, 0);
+  color: rgb(17, 121, 31);
+  font-size: 3rem;
+  line-height: 4rem;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: rgb(202, 202, 202);
+  cursor: pointer;
 }
 </style>
