@@ -50,7 +50,7 @@ export default {
     };
   },
   methods: {
-    //Hier werden die Rechenarten definiert und deren Funktion definiert
+    //Hier werden die Rechenarten definiert und deren Funktion definiert Blessing hat geholfen
     calculate(Rechenart) {
       if (
         (Rechenart === "+") |
