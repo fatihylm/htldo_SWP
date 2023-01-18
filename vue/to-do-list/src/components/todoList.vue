@@ -1,11 +1,11 @@
 <template>
   <div>
     <h1>TO-DO-LIST</h1>
-    <button @click="loadTasks">Load all finished Tasks</button>
+    <button @click="loadTasks">Load all Tasks</button>
     <ul>
       <li v-for="task in tasks" :key="task.id">
         {{ task.text }}
-        <button @click="removeTask(task.id)">Finish Task</button>
+        <button @click="removeTask(task.id)">X</button>
       </li>
     </ul>
     <input
