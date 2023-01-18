@@ -1,20 +1,20 @@
 <template>
   <div>
     <h1>TO-DO-LIST</h1>
+    <button @click="loadTasks">Load all finished Tasks</button>
     <ul>
       <li v-for="task in tasks" :key="task.id">
         {{ task.text }}
-        <button @click="removeTask(task.id)">Task entfernen</button>
+        <button @click="removeTask(task.id)">Finish Task</button>
       </li>
     </ul>
     <input
       v-model="newTaskText"
       @keyup.enter="addTask"
-      placeholder="Task hinzufügen"
+      placeholder="Add a task"
     />
   </div>
 </template>
-
 <script>
 import axios from "axios";
 export default {
@@ -27,9 +27,12 @@ export default {
   methods: {
     addTask() {
       axios
-        .post("https://to-do-c5706-default-rtdb.europe-west1.firebasedatabase.app/tasks.json", {
-          text: this.newTaskText,
-        })
+        .post(
+          "https://to-do-c5706-default-rtdb.europe-west1.firebasedatabase.app/tasks.json",
+          {
+            text: this.newTaskText,
+          }
+        )
         .then((response) => {
           this.tasks.push({
             id: response.data.name,
@@ -41,17 +44,20 @@ export default {
           console.log(error);
         });
     },
-
-    removeTask(id) {
+    loadTasks() {
       axios
-        .delete(`https://to-do-c5706-default-rtdb.europe-west1.firebasedatabase.app/tasks/${id}.json`)
+        .get(
+          "https://to-do-c5706-default-rtdb.europe-west1.firebasedatabase.app/tasks.json"
+        )
         .then((response) => {
-          this.tasks = this.tasks.filter((task) => task.id !== id);
-          return response;
+          this.tasks = Object.values(response.data);
         })
         .catch((error) => {
           console.log(error);
         });
+    },
+    removeTask(id) {
+      this.tasks = this.tasks.filter((task) => task.id !== id);
     },
   },
 };
@@ -63,6 +69,11 @@ h1 {
   font-weight: 600;
   font-size: 3rem;
   color: gold;
+}
+button {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 input {
